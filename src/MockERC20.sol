@@ -8,17 +8,9 @@ contract MockERC20 {
     error InvalidReceiver();
 
     string public symbol;
-    // uint8 public constant DECIMALS = 18;
 
     uint256 public totalSupply;
     mapping(address => uint256) public balanceOf;
-
-    // event Transfer(address indexed from, address indexed to, uint256 value);
-    // event Approval(
-    //     address indexed owner,
-    //     address indexed spender,
-    //     uint256 value
-    // );
 
     constructor(string memory symbol_) {
         symbol = symbol_;
@@ -52,10 +44,7 @@ contract MockERC20 {
         if (balance < amount) revert InsufficientBalance();
 
         balanceOf[from] = balance - amount;
-        // unchecked {
-        //     balanceOf[from] = balance - amount;
-        // }
+
         balanceOf[to] += amount;
-        // emit Transfer(from, to, amount);
     }
 }
